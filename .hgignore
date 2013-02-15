@@ -1,2 +1,3 @@
 syntax: glob
 *.sublime-*
+node_modules

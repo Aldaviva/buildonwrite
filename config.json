@@ -6,30 +6,29 @@
 			"baseDir": "/var/www/rivet/bjn/media/browserdev",
 			"trigger": {
 				"path": "src/scripts",
-				"include": ["*.js"],
-				"exclude": []
+				"include": "*.js"
 			},
-			"action": "ant lint js"
+			"action": "ant lint js html"
 		},
 		{
 			"name": "Skinny CSS",
 			"baseDir": "/var/www/rivet/bjn/media/browserdev",
 			"trigger": {
 				"path": "src/styles",
-				"include": ["*.less"],
-				"exclude": ["sprites.less"]
+				"include": "*.less",
+				"exclude": "sprites.less"
 			},
-			"action": "ant css"
+			"action": "ant css html"
 		},
 		{
 			"name": "Skinny Sprites",
 			"baseDir": "/var/www/rivet/bjn/media/browserdev",
 			"trigger": {
 				"path": "src/images",
-				"include": ["*.png"],
+				"include": "*.png",
 				"exclude": ["sprites.png", "sprites.png.uncompressed.png"]
 			},
-			"action": "ant sprites css"
+			"action": "ant sprites css html"
 		}
 	]
 }
