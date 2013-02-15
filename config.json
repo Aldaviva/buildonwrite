@@ -1,5 +1,5 @@
 {
-	"logLevel": "log",
+	"logLevel": "none",
 	"builds": [
 		{
 			"name": "Skinny JS",
