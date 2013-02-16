@@ -3,7 +3,7 @@ Build on Write
 
 Build on Write is a monitors filesystem directories. When a file changes, a build is fired.
 
-.. image:: https://aldaviva.com/portfolio/artwork/buildonwrite.png
+![Build on Write](https://aldaviva.com/portfolio/artwork/buildonwrite.png)
 
 - Red: failed
 - Yellow: in progress
