@@ -10,25 +10,25 @@ Build on Write is a monitors filesystem directories. When a file changes, a buil
 - Green: succeeded
 - White: not yet run
 
-##Requirements
+#Requirements
 
 - Node + NPM
 - Local filesystem access to the monitored source tree. SMB and NFS won't provide the necessary notifications when files are modified.
 
-##Installation
+#Installation
 
 In the directory where you unpacked Build on Write, run
 
 	$ npm install
 
 
-##Running
+#Running
 
 	$ node path/to/buildonwrite/
 
 Use `Ctrl+C` to exit.
 
-##Configuration
+#Configuration
 
 Configuration is stored in `config.json`, found by default in the installation directory. To use an alternate configuration file, run with `--config [filename]`.
 
@@ -50,31 +50,31 @@ Configuration is stored in `config.json`, found by default in the installation d
 }
 ```
 
-###logLevel
+##logLevel
 
 *values: log, info, warn, error, none*
 
 *default: none*
 
-Log is written to stdout.
+Log is written to stdout. Build failure details use the **error** level.
 
-###builds
+##builds
 
-####name
+###name
 
 This will appear in the UI.
 
-####baseDir
+###baseDir
 
 This path will be used as a base when resolving trigger paths and running actions.
 
-####trigger
+###trigger
 
-#####path
+####path
 
 Directory to monitor for changes. Relative to **baseDir**.
 
-#####include
+####include
 
 *( optional, default: * )*
 
@@ -82,7 +82,7 @@ Only files that match these patterns are monitored. Can be a single String or an
 
 Patterns use [glob syntax](https://github.com/isaacs/minimatch).
 
-#####exclude
+####exclude
 
 *( optional, default: [ ] )*
 
@@ -90,6 +90,6 @@ Files that match these patterns are ignored. If a file matches both an inclusion
 
 Patterns use [glob syntax](https://github.com/isaacs/minimatch).
 
-####action
+###action
 
-Command to execute when a file changes. The working directory will be **baseDir**.
+Command to execute when a file changes. The working directory will be **baseDir**. The return value of executing this command will be used to determine build failure (zero = success, nonzero = failure).

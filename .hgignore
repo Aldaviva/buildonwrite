@@ -1,3 +1,4 @@
 syntax: glob
 *.sublime-*
 node_modules
+config.json
