@@ -3,7 +3,7 @@ Build on Write
 
 Build on Write is a monitors filesystem directories. When a file changes, a build is fired.
 
-<img src="https://aldaviva.com/portfolio/artwork/buildonwrite.png" />
+.. image:: https://aldaviva.com/portfolio/artwork/buildonwrite.png
 
 - Red: failed
 - Yellow: in progress
@@ -20,6 +20,13 @@ Build on Write is a monitors filesystem directories. When a file changes, a buil
 In the directory where you unpacked Build on Write, run
 
 	$ npm install
+
+
+##Running
+
+	$ node path/to/buildonwrite/
+
+Use `Ctrl+C` to exit.
 
 ##Configuration
 
@@ -86,9 +93,3 @@ Patterns use [glob syntax](https://github.com/isaacs/minimatch).
 ####action
 
 Command to execute when a file changes. The working directory will be **baseDir**.
-
-##Running
-
-	$ node path/to/buildonwrite/
-
-Use `Ctrl+C` to exit.
