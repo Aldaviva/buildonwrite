@@ -21,7 +21,6 @@ In the directory where you unpacked Build on Write, run
 
 	$ npm install
 
-
 #Running
 
 	$ node path/to/buildonwrite/
@@ -30,7 +29,7 @@ Use `Ctrl+C` to exit.
 
 #Configuration
 
-Configuration is stored in `config.json`, found by default in the installation directory. To use an alternate configuration file, run with `--config [filename]`.
+Configuration is stored in `config.json`, read from the installation directory by default. To get started, make a copy of `config.json.example`. To use an alternate configuration filename, run with `--config [filename]`.
 
 ```json
 {
