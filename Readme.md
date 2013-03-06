@@ -40,7 +40,7 @@ Insert this into your HTML, assuming your buildonwrite script is running on `127
 		scriptEl.setAttribute('type', 'text/javascript');
 		scriptEl.setAttribute('src', 'http://127.0.0.1:8080/');
 		document.body.appendChild(scriptEl);
-	}, 2000);
+	}, 800);
 </script>
 ```
 
