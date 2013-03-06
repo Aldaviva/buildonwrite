@@ -27,6 +27,25 @@ In the directory where you unpacked Build on Write, run
 
 Use `Ctrl+C` to exit.
 
+#Live Reloading
+
+Your page can reload itself when a build finishes. This works by making a hanging JSONP-style HTTP request to a script file, served from buildonwrite, which eventually responds with Javascript that triggers a reload.
+
+Insert this into your HTML, assuming your buildonwrite script is running on `127.0.0.1` configured with `reloadServerPort: 8080`:
+
+```html
+<script type="text/javascript">
+	setTimeout(function(){
+		var scriptEl = document.createElement('script');
+		scriptEl.setAttribute('type', 'text/javascript');
+		scriptEl.setAttribute('src', 'http://127.0.0.1:8080/');
+		document.body.appendChild(scriptEl);
+	}, 2000);
+</script>
+```
+
+You should probably set your builds to not let this snippet into production.
+
 #Configuration
 
 Configuration is stored in `config.json`, read from the installation directory by default. To get started, make a copy of `config.json.example`. To use an alternate configuration filename, run with `--config [filename]`.
@@ -34,10 +53,28 @@ Configuration is stored in `config.json`, read from the installation directory b
 ```json
 {
 	"logLevel": "none",
+	"baseDir": "/var/www/rivet/bjn/media/browserdev",
+	"reloadServerPort": 8080,
 	"builds": [
 		{
-			"name": "Skinny Sprites",
-			"baseDir": "/var/www/rivet/bjn/media/browserdev",
+			"name": "Javascript",
+			"trigger": {
+				"path": "src/scripts",
+				"include": "*.js"
+			},
+			"action": "ant lint js html"
+		},
+		{
+			"name": "CSS",
+			"trigger": {
+				"path": "src/styles",
+				"include": "*.less",
+				"exclude": "sprites.less"
+			},
+			"action": "ant css html"
+		},
+		{
+			"name": "Sprites",
 			"trigger": {
 				"path": "src/images",
 				"include": "*.png",
@@ -57,15 +94,19 @@ Configuration is stored in `config.json`, read from the installation directory b
 
 Log is written to stdout. Build failure details use the **error** level.
 
+##baseDir
+
+This path will be used as a base when resolving trigger paths and running actions.
+
+##reloadServerPort
+
+Requests to listen on for reload notification requests.
+
 ##builds
 
 ###name
 
 This will appear in the UI.
-
-###baseDir
-
-This path will be used as a base when resolving trigger paths and running actions.
 
 ###trigger
 

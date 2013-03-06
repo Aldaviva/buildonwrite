@@ -6,3 +6,6 @@ watcher.start();
 
 var display = require('./lib/display');
 display.start();
+
+var reloadServer = require('./lib/reloadServer');
+reloadServer.start();
