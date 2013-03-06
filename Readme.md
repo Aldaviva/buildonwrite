@@ -1,7 +1,7 @@
 Build on Write
 ==============
 
-Build on Write is a monitors filesystem directories. When a file changes, a build is fired.
+Build on Write monitors filesystem directories. When a file changes, a build is fired.
 
 ![Build on Write](https://aldaviva.com/portfolio/artwork/buildonwrite.png)
 
