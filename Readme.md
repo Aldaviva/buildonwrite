@@ -23,7 +23,11 @@ In the directory where you unpacked Build on Write, run
 
 #Running
 
-	$ node path/to/buildonwrite/
+	$ node ./buildonwrite/
+
+With custom configuration file:
+
+	$ node ./buildonwrite/ --config ./buildonwrite/config.json
 
 Use `Ctrl+C` to exit.
 
@@ -34,14 +38,7 @@ Your page can reload itself when a build finishes. This works by making a hangin
 Insert this into your HTML, assuming your buildonwrite script is running on `127.0.0.1` configured with `reloadServerPort: 8080`:
 
 ```html
-<script type="text/javascript">
-	setTimeout(function(){
-		var scriptEl = document.createElement('script');
-		scriptEl.setAttribute('type', 'text/javascript');
-		scriptEl.setAttribute('src', 'http://127.0.0.1:8080/');
-		document.body.appendChild(scriptEl);
-	}, 800);
-</script>
+<script type="text/javascript" src="http://127.0.0.1:8080/"></script>
 ```
 
 You should probably set your builds to not let this snippet into production.
